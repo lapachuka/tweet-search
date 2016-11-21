@@ -1,0 +1,94 @@
+<div layout="column" class="category-list" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <div class="md-toolbar-tools">
+          <h2>
+            Choose category
+          </h2>
+          <span flex="" class="flex"></span>
+          <md-button class="md-fab md-mini"
+                     ng-click="vm.addCategory()"
+                     aria-label="Add category" type="submit">
+            <md-icon>add</md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <md-content layout-padding>
+        <md-button ng-click="vm.close()" class="md-primary" hide-gt-md>
+          Close Sidenav Left
+        </md-button>
+
+        <md-list flex>
+          <md-list-item ng-repeat="item in vm.categories" ng-click="vm.selectTweetByCategory(item)">
+            <div class="md-list-item-text" layout="column">
+              <span class="category-item">{{ item.name }}</span>
+            </div>
+            <md-icon class="md-secondary"
+                     ng-click="vm.editCategory(item)"
+            >create
+            </md-icon>
+            <md-icon class="md-secondary"
+                     ng-click="vm.deleteCategory(item.id, $index)"
+            >delete
+            </md-icon>
+          </md-list-item>
+
+        </md-list>
+
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+      <div layout="column" layout-align="top end">
+        <md-button
+            hide-gt-md class="md-fab"
+            aria-label="Menu"
+            ng-click="vm.toggleLeft()">
+          <md-icon>menu</md-icon>
+        </md-button>
+      </div>
+
+      <div layout="column" layout-align="top center">
+        <p ng-hide="vm.selectedCategory">Please select category!</p>
+        <p ng-hide="vm.tweets.length || !vm.selectedCategory">No result found</p>
+        <div class="search-result" ng-if="vm.tweets.length">
+          <h2 ng-show="vm.selectedCategory">Selected category: {{vm.selectedCategory}}</h2>
+          <md-list flex>
+            <md-subheader class="md-no-sticky">Tweets result</md-subheader>
+            <md-list-item class="md-3-line" ng-repeat="item in vm.tweets track by $index" ng-click="null">
+              <img ng-src="{{item.user.profile_image_url}}" class="md-avatar" alt="{{item.who}}"/>
+              <div class="md-list-item-text" layout="column">
+                <h3>{{ item.user.name }}</h3>
+                <h4>{{ item.created_at|limitTo:10}}</h4>
+                <p>{{ item.text }}</p>
+              </div>
+
+              <md-icon class="md-secondary"
+                       ng-click="vm.deleteTweetFromCategory(item.id)"
+              >delete
+              </md-icon>
+
+            </md-list-item>
+
+          </md-list>
+        </div>
+      </div>
+</div>
+
+<div flex></div>
+
+</md-content>
+
+
+</section>
+
+</div>

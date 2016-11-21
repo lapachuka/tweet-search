@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="AppController">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tweet search</title>
+
+  <!-- vendor:css -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
+</head>
+
+
+<body>
+<md-progress-linear class="progress-bar md-warn" md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+<ui-view></ui-view>
+
+<!-- vendor:js -->
+<!-- endinject -->
+<!-- inject:js -->
+<!-- endinject -->
+<!-- templates:js -->
+<!-- endinject -->
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<md-dialog>
+  <md-toolbar class="pano_view_toolbar">
+    <div class="md-toolbar-tools">
+      <h2>{{vm.title}}</h2>
+      <span flex="auto"></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div class="md-dialog-content" layout="row">
+
+      <md-input-container flex>
+        <label>Category</label>
+        <input ng-model="vm.category.name">
+      </md-input-container>
+
+    </div>
+
+  </md-dialog-content>
+
+  <md-dialog-actions layout="row">
+    <div class="md-dialog-actions" layout="row">
+      <span flex></span>
+      <md-button class='md-primary md-raised md-warn' ng-click="vm.cancel()">
+        Cancel
+      </md-button>
+
+      <md-button ng-disabled="!vm.category.name" class="md-primary md-raised text-white" ng-click="vm.save()">
+        Save
+      </md-button>
+    </div>
+  </md-dialog-actions>
+  </form>
+</md-dialog>

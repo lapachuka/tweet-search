@@ -1,0 +1,41 @@
+<div class="site_content">
+  <form ng-submit="vm.search()" class="search-form">
+    <div layout="row" class="search-head">
+      <md-input-container flex>
+        <label>Search</label>
+        <input ng-model="vm.searchValue" maxlength="15">
+      </md-input-container>
+      <md-button ng-disabled="!vm.searchValue" class="md-fab md-mini" aria-label="Search" type="submit">
+        <md-icon>search</md-icon>
+      </md-button>
+      <md-button ng-click="vm.clearAll()" ng-disabled="!vm.searchValue && !vm.tweets.length" class="md-warn">
+        Clear all
+      </md-button>
+    </div>
+  </form>
+
+  <div class="search-result" ng-if="vm.tweets.length">
+    <md-list flex>
+      <md-subheader class="md-no-sticky">Tweets result</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="item in vm.tweets track by $index" ng-click="null">
+        <img ng-src="{{item.user.profile_image_url}}" class="md-avatar" alt="{{item.who}}"/>
+        <div class="md-list-item-text" layout="column">
+          <h3>{{ item.user.name }}</h3>
+          <h4>{{ item.created_at|limitTo:10}}</h4>
+          <p>{{ item.text }}</p>
+        </div>
+
+        <md-icon
+            ng-if="vm.categoriesCount"
+            class="md-secondary"
+                 ng-click="vm.showCategoryList(item, $index)"
+        >playlist_add
+        </md-icon>
+
+      </md-list-item>
+
+    </md-list>
+  </div>
+
+
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "heimathandel",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "bower": "",
+    "del": "",
+    "event-stream": "",
+    "gulp": "",
+    "gulp-angular-filesort": "",
+    "gulp-autoprefixer": "",
+    "gulp-concat": "",
+    "gulp-inject": "",
+    "gulp-ng-annotate": "",
+    "gulp-ng-html2js": "",
+    "gulp-rsync": "",
+    "gulp-sass": "",
+    "gulp-uglify": "",
+    "main-bower-files": ""
+  },
+  "devDependencies": {
+    "gulp-filter": "^4.0.0",
+    "gulp-minify": "0.0.14",
+    "gulp-replace": "^0.5.4",
+    "gulp-rsync": "0.0.6",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.6",
+    "gulp-webserver": "^0.9.1"
+  },
+  "author": "",
+  "license": "GPL v3.0"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "heimathandel",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "1.5.6",
+    "angular-material": "1.1.1",
+    "angular-ui-router": "0.2.15",
+    "angular-sanitize": "1.5.6",
+    "angular-aria": "1.5.6",
+    "oauth-js": "oauthio-web#^0.6.1",
+    "ng-twitter-api": "^0.1.5"
+  },
+  "resolutions": {
+    "angular": "1.5.6"
+  },
+  "overrides": {
+    "angular": {
+      "main": [
+        "angular.min.js.map",
+        "angular.min.js"
+      ]
+    },
+    "angular-material": {
+      "main": [
+        "angular-material.min.js",
+        "angular-material.min.js.map",
+        "angular-material.min.css"
+      ]
+    },
+    "angular-ui-router": {
+      "main": [
+        "release/angular-ui-router.min.js",
+        "release/angular-ui-router.min.js.map"
+      ]
+    },
+    "angular-sanitize": {
+      "main": [
+        "angular-sanitize.js"
+      ]
+    },
+    "angular-aria": {
+      "main": [
+        "angular-aria.min.js",
+        "angular-aria.min.js.map"
+      ]
+    },
+    "oauth-js": {
+      "main": [
+        "dist/oauth.js"
+      ]
+    }
+  }
+}

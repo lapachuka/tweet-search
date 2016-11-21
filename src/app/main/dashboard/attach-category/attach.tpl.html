@@ -1,0 +1,38 @@
+<md-dialog>
+  <md-toolbar class="pano_view_toolbar">
+    <div class="md-toolbar-tools">
+      <h2>Attach to category</h2>
+      <span flex="auto"></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content class="spot-wrap-modal">
+
+    <md-list flex>
+      <md-list-item ng-repeat="item in vm.categories" ng-click="null">
+        <div class="md-list-item-text" layout="column">
+          <h4>{{ item.name }}</h4>
+        </div>
+        <md-checkbox class="md-secondary" ng-model="item.selected"></md-checkbox>
+      </md-list-item>
+    </md-list>
+
+
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+    <div class="md-dialog-actions" layout="row">
+      <span flex></span>
+      <md-button class='md-primary md-raised md-warn' ng-click="vm.cancel()">
+        Cancel
+      </md-button>
+
+      <md-button class="md-primary md-raised text-white" ng-click="vm.save()">
+        Save
+      </md-button>
+    </div>
+  </md-dialog-actions>
+  </form>
+</md-dialog>
