@@ -14,6 +14,8 @@
     </div>
   </form>
 
+  <p ng-if="!vm.tweets.length && vm.madeSearch">No results found</p>
+
   <div class="search-result" ng-if="vm.tweets.length">
     <md-list flex>
       <md-subheader class="md-no-sticky">Tweets result</md-subheader>

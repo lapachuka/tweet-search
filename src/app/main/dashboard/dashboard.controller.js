@@ -14,12 +14,14 @@
 		vm.categoriesCount = Category.getCategoriesCount();
 		vm.showCategoryList = showCategoryList;
 		vm.clearAll = clearAll;
+		vm.madeSearch = false;
 
 		//============================
 
 		function clearAll() {
 			vm.tweets = [];
 			vm.searchValue = '';
+			vm.madeSearch = false;
 			Tweet.clearLastData();
 		}
 
@@ -45,6 +47,7 @@
 			Tweet.search(value)
 				.then(function (resp) {
 					vm.tweets = resp.statuses;
+					vm.madeSearch = true;
 				});
 		}
 

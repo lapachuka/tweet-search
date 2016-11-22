@@ -18,6 +18,7 @@
 		vm.addCategory = addCategory;
 		vm.editCategory = editCategory;
 		vm.deleteCategory = deleteCategory;
+
 		prepareCategory();
 
 		//====================================
@@ -78,7 +79,14 @@
 
 			$mdDialog.show(confirm).then(function () {
 				Category.deleteItem(categoryId);
+
 				vm.categories.splice(index, 1);
+
+				if (categoryId === vm.selectedCategoryId) {
+					vm.selectedCategory = '';
+					vm.selectedCategoryId = '';
+					vm.tweets = [];
+				}
 			});
 		}
 
