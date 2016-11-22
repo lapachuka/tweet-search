@@ -7,8 +7,7 @@
     "angular-ui-router": "0.2.15",
     "angular-sanitize": "1.5.6",
     "angular-aria": "1.5.6",
-    "oauth-js": "oauthio-web#^0.6.1",
-    "ng-twitter-api": "^0.1.5"
+    "oauth-js": "oauthio-web#^0.6.1"
   },
   "resolutions": {
     "angular": "1.5.6"

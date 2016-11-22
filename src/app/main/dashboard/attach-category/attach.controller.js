@@ -12,6 +12,8 @@
 		vm.save = save;
 		vm.categories = [];
 
+		console.log('attach controller');
+
 		prepareCategory();
 
 		//=============================//

@@ -103,7 +103,7 @@ function buildScripts() {
 		.pipe(angularFileSort())
 		.pipe(ngAnnotate())
 		//.pipe(uglify())
-		.pipe(concat('script.js'))
+		//.pipe(concat('script.js'))
 		.pipe(gulp.dest(config.dev.scripts));
 }
 
@@ -118,7 +118,7 @@ function buildTemplates() {
 function buildVendorScripts() {
 	return gulp.src(mainBowerFiles())
 		.pipe(filter('**/*.js'))
-		.pipe(concat('vendor.js'))
+		//.pipe(concat('vendor.js'))
 		.pipe(gulp.dest(config.dev.vendors));
 }
 
@@ -131,7 +131,7 @@ function buildVendorMap(){
 function buildVendorStyle() {
 	return gulp.src(mainBowerFiles())
 		.pipe(filter('**/*.css'))
-	  .pipe(concat('vendor.css'))
+	    //.pipe(concat('vendor.css'))
 		.pipe(gulp.dest(config.dev.vendors));
 }
 

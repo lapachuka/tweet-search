@@ -5,7 +5,6 @@
 		.controller('AppController', appController);
 
 	/**ngInject*/
-	function appController(Dashboard, $timeout) {
-
+	function appController() {
 	}
 })();
