@@ -29,7 +29,7 @@ $ bower install
 Then build project
 
 ```sh
-$ gulp dev
+$ gulp build
 ```
 Then start server
 ```sh

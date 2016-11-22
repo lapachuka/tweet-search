@@ -22,8 +22,8 @@ var gulp = require('gulp'),
 gulp.task('clean-dev', cleanDev);
 gulp.task('watch', startWatch);
 gulp.task('compile', compile);
-gulp.task('dev', ['clean-dev', 'watch'], compile);
-
+gulp.task('dev', ['clean-dev'], compile);
+gulp.task('build', ['clean-dev'], compile);
 
 gulp.task('default', ['dev']);
 gulp.task('server', startWebserver);
