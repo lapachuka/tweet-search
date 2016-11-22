@@ -1,9 +1,21 @@
 .search-head {
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
 
     button {
         height: 10px;
         top: 15px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .search-head {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search-head {
+        width: 85%;
     }
 }

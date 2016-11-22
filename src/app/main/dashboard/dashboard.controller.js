@@ -5,11 +5,11 @@
 		.controller('DashboardController', dashboardController);
 
 	/*@ngInject*/
-	function dashboardController(Dashboard, $mdDialog, Tweet, Category) {
+	function dashboardController($mdDialog, Tweet, Category) {
 		var vm = this;
 
 		vm.search = search;
-		vm.tweets = Dashboard.getLastData();
+		vm.tweets = Tweet.getLastData();
 		vm.searchValue = '';
 		vm.categoriesCount = Category.getCategoriesCount();
 		vm.showCategoryList = showCategoryList;
@@ -20,7 +20,7 @@
 		function clearAll() {
 			vm.tweets = [];
 			vm.searchValue = '';
-			Dashboard.clearLastData();
+			Tweet.clearLastData();
 		}
 
 		function showCategoryList(tweet, index) {
@@ -29,21 +29,21 @@
 				controllerAs: 'vm',
 				templateUrl: 'main/dashboard/attach-category/attach.tpl.html',
 				parent: angular.element(document.body),
+				locals: {
+					tweet: tweet
+				},
 				clickOutsideToClose: false
 			})
 				.then(function (resp) {
 					tweet.categories = resp;
 					Tweet.add(tweet);
-
-					vm.tweets.splice(index, 1);
 				});
 		}
 
 		function search() {
 			var value = vm.searchValue.replace('#', '%23');
-			Dashboard.search(value)
+			Tweet.search(value)
 				.then(function (resp) {
-					console.log(resp);
 					vm.tweets = resp.statuses;
 				});
 		}
