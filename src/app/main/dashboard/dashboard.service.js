@@ -8,8 +8,7 @@
 	function DashboardService($q, $rootScope) {
 		var authorizationResult = false;
 		var lastData = [];
-		var url = '/1.1/search/tweets.json?lang=en&q=';
-		/*;*/
+		OAuth.clearCache('twitter');
 
 		return {
 			search: search,
@@ -18,7 +17,6 @@
 			clearLastData: clearLastData,
 			getAuthResult: getAuthResult
 		};
-
 
 		function clearLastData() {
 			lastData = [];
@@ -34,6 +32,8 @@
 
 		function setAuthResult() {
 			var deferred = $q.defer();
+
+			OAuth.initialize('d-K7_xYzzusWLME8Ktan0N9Es-w');
 			OAuth.popup("twitter", {
 				cache: true
 			}, function (error, result) {
@@ -49,40 +49,31 @@
 		}
 
 		function search(key) {
-			var deferred = $q.defer();
-			$rootScope.isLoading = 1;
-
 			if (authorizationResult) {
-
-				authorizationResult.get(url + key)
-					.done(function (data) {
-						$rootScope.isLoading = 0;
-						lastData = data.statuses;
-						deferred.resolve(data);
-					}).fail(function (err) {
-					$rootScope.isLoading = 0;
-					deferred.reject(err);
-				});
-
+				return searchByKey(key);
 			} else {
-				OAuth.initialize('d-K7_xYzzusWLME8Ktan0N9Es-w');
-
-				setAuthResult()
+				return setAuthResult()
 					.then(function () {
-
-						authorizationResult.get(url + key)
-							.done(function (data) {
-								$rootScope.isLoading = 0;
-								lastData = data.statuses;
-								deferred.resolve(data);
-							}).fail(function (err) {
-							$rootScope.isLoading = 0;
-							deferred.reject(err);
-						});
-
+						return searchByKey(key);
 					});
 			}
+		}
 
+		function searchByKey(key) {
+			var deferred = $q.defer();
+			var url = '/1.1/search/tweets.json?lang=en&q=';
+
+			$rootScope.isLoading = 1;
+
+			authorizationResult.get(url + key)
+				.done(function (data) {
+					$rootScope.isLoading = 0;
+					lastData = data.statuses;
+					deferred.resolve(data);
+				}).fail(function (err) {
+				$rootScope.isLoading = 0;
+				deferred.reject(err);
+			});
 
 			return deferred.promise;
 		}

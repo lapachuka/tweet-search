@@ -5,7 +5,7 @@
 		.controller('DashboardController', dashboardController);
 
 	/*@ngInject*/
-	function dashboardController(Dashboard, $mdDialog, Tweet, Category, $httpParamSerializer) {
+	function dashboardController(Dashboard, $mdDialog, Tweet, Category) {
 		var vm = this;
 
 		vm.search = search;
